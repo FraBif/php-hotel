@@ -53,5 +53,51 @@
 
 <h1>Lista Degli Hotels</h1>
 
+<div class="container">
+    <div class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col">Parcheggio</th>
+                <th scope="col">Voto</th>
+                <th scope="col">Distanza dal centro</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach($hotels as $hotelSingolo){?>
+                        <tr>
+                             <?php 
+                                    $hotelName = $hotelSingolo['name'];
+                                    $hotelDescription = $hotelSingolo['description'];
+                                    $hotelParking = $hotelSingolo['parking'];
+                                    $hotelVote = $hotelSingolo['vote'];
+                                    $hotel_distance_to_center = $hotelSingolo['distance_to_center'];
+                                ?>
+                            <td>
+                                <?php echo $hotelName?>
+                            </td>
+                            <td>
+                                <?php echo $hotelDescription?>
+                            </td>
+                            <td>
+                                <?php if($hotelParking === true){
+                                    echo 'Parcheggio Disponibile';
+                                }else{
+                                    echo 'Parcheggio non disponibile';
+                                }?>
+                             </td>
+                            <td>
+                                <?php echo $hotelVote?>
+                            </td>
+                            <td>
+                                <?php echo $hotel_distance_to_center?>
+                            </td>
+                            </tr>
+                    <?php }?>
+        </tbody>
+    </div>
+</div>
+
 </body>
 </html>
